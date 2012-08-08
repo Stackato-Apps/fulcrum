@@ -1,0 +1,14 @@
+name: fulcrum
+instances: 1
+framework:
+  type: rails3
+  runtime: ruby19
+mem: 256M
+min_version:
+  client: 1.2.2
+  server: 1.2.5
+services:
+  pg-fulcrum: postgresql
+hooks:
+  post-staging:
+    - bundle exec rake fulcrum:setup db:setup
